@@ -37,7 +37,6 @@ func (repositorio Usuarios) Criar(usuario modelos.Usuario) (uint64, error) {
 	return uint64(ultimoIDInserido), nil
 }
 
-// FAZER O GIT ADD COMO adiciona fucao busca com parametro
 func (repositorios Usuarios) Buscar(nomeOuNick string) ([]modelos.Usuario, error) {
 	nomeOuNick = fmt.Sprintf("%%%s%%", nomeOuNick) // %nomeOuNiCK%
 
@@ -99,4 +98,21 @@ func (repositorio Usuarios) BuscaPorID(ID uint64) (modelos.Usuario, error) {
 
 	}
 	return usuario, nil
+}
+
+func (repositorio Usuarios) Atualizar(ID uint64, usuario modelos.Usuario) error {
+	statement, erro := repositorio.db.Prepare(
+		"update usuario set nome = ?, nick = ?, email = ? where id = ?",
+	)
+
+	if erro != nil {
+		return erro
+	}
+	defer statement.Close()
+
+	if _, erro = statement.Exec(usuario.Nome, usuario.Nick, usuario.Email, ID); erro != nil {
+		return erro
+	}
+
+	return nil
 }
