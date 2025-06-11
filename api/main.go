@@ -16,3 +16,6 @@ func main() {
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Porta), r))
 
 }
+
+//PARA EXECUTAR TEM QUE ESTAR COM O TERMINAL DENTRO DA PASTA DA API E RODAR COMANDO
+//go run main.go
