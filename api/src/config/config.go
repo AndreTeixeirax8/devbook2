@@ -12,6 +12,9 @@ import (
 var (
 	StringConexaoBanco = "root:admin@tcp(localhost:3306)/devbook?charset=utf8mb4&parseTime=True&loc=Local"
 	Porta              = 3000 // Valor padrão da porta
+
+	//chave usada para assina o token
+	SecretKey []byte
 )
 
 func Carregar() {
@@ -33,5 +36,7 @@ func Carregar() {
 		os.Getenv("DB_PORT"),
 		os.Getenv("DB_NOME"),
 	)
+
+	SecretKey = []byte(os.Getenv("SECRET_KEY"))
 
 }
