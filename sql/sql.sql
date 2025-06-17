@@ -11,3 +11,18 @@ CREATE TABLE usuario (
     senha VARCHAR(200) NOT NULL,
     criadoEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE seguidores(
+    usuario_id INT NOT NULL,
+    FOREIGN KEY (usuario_id)
+    REFERENCES usuarios(id)
+    ON DELETE CASCADE,
+
+
+    seguidor_id INT NOT NULL
+    FOREIGN KEY(seguidor_id)
+    REFERENCES usuarios(id)
+    ON DELETE CASCADE,
+
+    PRIMARY KEY(usuario_id,seguidor_id)
+)
