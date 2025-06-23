@@ -17,6 +17,7 @@ type Rota struct {
 func Configurar(r *mux.Router) *mux.Router {
 	rotas := rotasUsuarios //Essa variavel faz a ligação com o usuarios.go
 	rotas = append(rotas, rotaLogin)
+	rotas = append(rotas, rotasPublicacoes...)
 	for _, rota := range rotas {
 
 		if rota.RequerAutenticacao {
