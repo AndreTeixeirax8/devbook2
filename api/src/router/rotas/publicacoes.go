@@ -21,7 +21,7 @@ var rotasPublicacoes = []Rota{
 	{
 		URI:                "/publicacoes/{publicacaoId}",
 		Metodo:             http.MethodGet,
-		Funcao:             controllers.BuscarPublicacoesPorId,
+		Funcao:             controllers.BuscarPublicacao,
 		RequerAutenticacao: true,
 	},
 	{

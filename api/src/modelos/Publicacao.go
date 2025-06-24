@@ -8,12 +8,13 @@ import (
 
 // Publicacao representa uma publicação feita por um usuário
 type Publicacao struct {
-	ID       uint64    `json:"id, omitempty"` // ID da publicação
-	Titulo   string    `json:"titulo, omitempty"`
-	Conteudo string    `json:"conteudo, omitempty"`
-	AutorID  uint64    `json:"autorId, omitempty"`
-	Curtidas uint64    `json:"curtidas"`
-	CriadaEm time.Time `json:"criadaEm, omitempty"`
+	ID        uint64    `json:"id, omitempty"` // ID da publicação
+	Titulo    string    `json:"titulo, omitempty"`
+	Conteudo  string    `json:"conteudo, omitempty"`
+	AutorID   uint64    `json:"autorId, omitempty"`
+	AutorNick string    `json:"autorNick, omitempty"` // Nick do autor da publicação
+	Curtidas  uint64    `json:"curtidas"`
+	CriadaEm  time.Time `json:"criadaEm, omitempty"`
 }
 
 func (publicacao *Publicacao) Preparar() error {
