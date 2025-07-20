@@ -203,6 +203,8 @@ func DeletarPublicacao(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	respostas.JSON(w, http.StatusOK, map[string]string{"mensagem": "publicação deletada com sucesso"})
+
 }
 
 func BuscarPublicacoesPorUsuario(w http.ResponseWriter, r *http.Request) {
